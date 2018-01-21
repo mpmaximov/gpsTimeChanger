@@ -1,0 +1,13 @@
+<!doctype html>
+<head>
+<title>Admin area</title>
+</head>
+<body>
+<form action="/change_time" method="post">
+	<label for="from">From</label>
+	<input id="from" type="text" pattern="\d{2}:\d{2}" name="from" placeholder="09:15" value="{{_from}}">
+	<label for="to">To</label>
+	<input id="to" type="text" pattern="\d{2}:\d{2}" name="to" placeholder="15:36" value="{{_to}}">
+	<input type="submit" value="Submit">
+</form>
+</body>
