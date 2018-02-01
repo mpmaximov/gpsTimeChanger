@@ -39,7 +39,7 @@ def change_url():
         if args.has_key('svc') and args['svc'] == 'messages/load_interval':
             # and int(pms['timeTo']) - int(pms['timeFrom']) > 24*3600:
             _from = dt.date_time(dt.begin_date(int(pms['timeFrom'])), int(Intervals.query.limit(1).first().tbegin))
-            _to = dt.date_time(dt.begin_date(int(pms['timeTo'])), int(Intervals.query.limit(1).first().tend))
+            _to = dt.date_time(dt.begin_date(int(pms['timeTo'])-1), int(Intervals.query.limit(1).first().tend))
             print "Old: " + dt.htime(int(pms['timeFrom'])) + " - " + dt.htime(int(pms['timeTo']))
             print "New: " + dt.htime(_from) + " - " + dt.htime(_to)
             new_from = "\"timeFrom\":"+str(_from)
