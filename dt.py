@@ -2,8 +2,8 @@ from datetime import date, datetime
 import time
 
 def begin_date(ts):
-	begindate = date.fromtimestamp(ts)
-	return time.mktime(begindate.timetuple()) - time.timezone
+	begindate = datetime.utcfromtimestamp(ts)
+	return ts - begindate.hour*3600 - begindate.minute*60 - begindate.second
 
 def date_time(ts_date, ts_time):
 	return ts_date + ts_time
