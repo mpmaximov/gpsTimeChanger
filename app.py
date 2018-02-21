@@ -38,8 +38,8 @@ def change_url():
         pms = json.loads(args['params'])
         if args.has_key('svc') and args['svc'] == 'messages/load_interval':
             # and int(pms['timeTo']) - int(pms['timeFrom']) > 24*3600:
-            _from = dt.date_time(dt.begin_date(int(pms['timeFrom'])), int(Intervals.query.limit(1).first().tbegin)-7200)
-            _to = dt.date_time(dt.begin_date(int(pms['timeTo'])-1), int(Intervals.query.limit(1).first().tend)-7200)
+            _from = dt.date_time(dt.begin_date(int(pms['timeFrom'])+ 7200 + 1), int(Intervals.query.limit(1).first().tbegin)-7200)
+            _to = dt.date_time(dt.begin_date(int(pms['timeTo']) + 7200), int(Intervals.query.limit(1).first().tend)-7200)
             print "Old: " + dt.htime(int(pms['timeFrom'])) + " - " + dt.htime(int(pms['timeTo']))
             print "New: " + dt.htime(_from) + " - " + dt.htime(_to)
             new_from = "\"timeFrom\":"+str(_from)
